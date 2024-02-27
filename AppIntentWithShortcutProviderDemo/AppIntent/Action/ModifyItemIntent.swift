@@ -37,10 +37,10 @@ struct ModifyItemIntent: AppIntent, PredictableIntent {
     var statusIndex: Int
     
     init() {
-        
     }
     
     init(_ operation: ItemStatus) {
+        self.init()
         self.operation = operation
     }
     
