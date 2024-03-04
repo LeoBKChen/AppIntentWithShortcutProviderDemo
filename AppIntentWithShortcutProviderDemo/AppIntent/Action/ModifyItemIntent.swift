@@ -34,7 +34,7 @@ struct ModifyItemIntent: AppIntent, PredictableIntent {
     @Parameter(title: "Status Index", 
                description: "The index of the status you want to modify",
                requestValueDialog: IntentDialog.itemStatusIndexParameterPrompt)
-    var statusIndex: Int
+    var statusIndex: Int?
     
     init() {
     }
@@ -43,15 +43,14 @@ struct ModifyItemIntent: AppIntent, PredictableIntent {
         self.init()
         self.operation = operation
     }
-    
-    
+
     func perform() async throws -> some IntentResult & ProvidesDialog {
         
-        if (self.item.status.count > self.statusIndex) {
-            self.item.status[self.statusIndex] = self.operation
+        if (self.item.status.count > 1 && (self.statusIndex == nil)) {
+            self.statusIndex = try await self.$statusIndex.requestDisambiguation(among: Array(0..<self.item.status.count), dialog: IntentDialog.itemStatusIndexParameterPrompt)
         }
         else {
-            throw self.$statusIndex.needsValueError("status index should below \(self.item.status.count)")
+            self.item.status[self.statusIndex ?? 0] = self.operation
         }
         
         try await DataProvider.shared.updateItem(self.item)

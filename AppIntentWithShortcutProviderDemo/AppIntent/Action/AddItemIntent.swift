@@ -19,8 +19,6 @@ struct AddItemIntent: AppIntent, PredictableIntent {
     @Parameter(title: "Title", description: "Title of the new item", requestValueDialog: IntentDialog.itemTitleParameterPrompt)
     var title: String
     
-    
-    
     static var predictionConfiguration: some IntentPredictionConfiguration {
         IntentPrediction() { 
             DisplayRepresentation(
