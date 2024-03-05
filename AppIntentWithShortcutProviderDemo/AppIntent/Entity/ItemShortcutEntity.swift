@@ -58,7 +58,6 @@ struct ItemShortcutEntity: Identifiable, AppEntity {
 
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Item")
     
-    typealias DefaultQueryType = ItemQuery
     static var defaultQuery: ItemQuery = ItemQuery()
         
     var id: UUID

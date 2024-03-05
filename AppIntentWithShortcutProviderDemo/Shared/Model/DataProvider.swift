@@ -31,7 +31,7 @@ class DataProvider {
     init () {
         
         let schema = Schema([
-            Item.self,
+            Item.self
         ])
         
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
@@ -61,7 +61,7 @@ class DataProvider {
 extension DataProvider: ItemDataController {
     @MainActor
     func getAllItems() throws -> [Item] {
-        let context = DataProvider.shared.container.mainContext
+        let context = self.container.mainContext
         
         let upcomingItems = FetchDescriptor<Item>()
 
@@ -82,7 +82,7 @@ extension DataProvider: ItemDataController {
     
     @MainActor
     func deleteItem(_ item: Item) throws {
-        let context = DataProvider.shared.container.mainContext
+        let context = self.container.mainContext
         
         let originalItem = try self.getItem(with: item.title)
         context.delete(originalItem)
@@ -90,14 +90,15 @@ extension DataProvider: ItemDataController {
     
     @MainActor
     func insertItem(_ item: Item) {
-        let context = DataProvider.shared.container.mainContext
+        let context = self.container.mainContext
         
         context.insert(item)
+        try? context.save()
     }
     
     @MainActor
     func getItem(with title: String) throws -> Item {
-        let context = DataProvider.shared.container.mainContext
+        let context = self.container.mainContext
         
         var upcomingItem = FetchDescriptor<Item>(
             predicate: #Predicate { $0.title == title }

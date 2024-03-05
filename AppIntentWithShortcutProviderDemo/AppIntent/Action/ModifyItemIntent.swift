@@ -37,6 +37,7 @@ struct ModifyItemIntent: AppIntent, PredictableIntent {
     var statusIndex: Int?
     
     init() {
+        _ = DataProvider.shared
     }
     
     init(_ operation: ItemStatus) {

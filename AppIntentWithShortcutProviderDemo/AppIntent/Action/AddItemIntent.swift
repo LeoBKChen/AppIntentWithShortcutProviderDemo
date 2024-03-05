@@ -28,6 +28,14 @@ struct AddItemIntent: AppIntent, PredictableIntent {
         }
     }
     
+    init() {
+        _ = DataProvider.shared
+    }
+    
+    init(title: String) {
+        self.title = title
+    }
+    
     func perform() async throws -> some IntentResult & ProvidesDialog {
         let item = Item(timestamp: Date(), id: UUID(), title: self.title, status: [.off, .off, .off])
         
