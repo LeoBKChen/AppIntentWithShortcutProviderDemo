@@ -47,7 +47,7 @@ struct ModifyItemIntent: AppIntent, PredictableIntent {
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
         
-        if (self.item.status.count > 1 && (self.statusIndex == nil)) {
+        if (self.item.status.count > 1 && self.statusIndex == nil) {
             self.statusIndex = try await self.$statusIndex.requestDisambiguation(among: Array(0..<self.item.status.count), dialog: IntentDialog.itemStatusIndexParameterPrompt)
         }
         else {

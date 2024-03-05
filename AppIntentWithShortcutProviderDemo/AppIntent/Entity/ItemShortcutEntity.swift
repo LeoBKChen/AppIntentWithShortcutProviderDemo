@@ -9,11 +9,29 @@ import Foundation
 import AppIntents
 
 struct ItemShortcutEntity: Identifiable, AppEntity {
-  
+    
+    
+    var id: UUID
+    
+    var title: String
+    
+    var timestamp: Date
+    
+    var status: [ItemStatus]
+    
+    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Item")
+    
+    static var defaultQuery: ItemQuery = ItemQuery()
+    
+    var displayRepresentation: DisplayRepresentation {
+        return DisplayRepresentation(
+            title: "\(title)",
+            subtitle: "",
+            image: .init(systemName: "cube.box")
+        )
+    }
+    
     struct ItemQuery: EntityStringQuery {
-        init() {
-        }
-        
         func entities(matching title: String) async throws -> [ItemShortcutEntity] {
             
             return try await DataProvider.shared.getAllItems().filter {
@@ -55,26 +73,7 @@ struct ItemShortcutEntity: Identifiable, AppEntity {
             }
         }
     }
-
-    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Item")
     
-    static var defaultQuery: ItemQuery = ItemQuery()
-        
-    var id: UUID
-    
-    var title: String
-    
-    var timestamp: Date
-        
-    var status: [ItemStatus]
-    
-    var displayRepresentation: DisplayRepresentation {
-        return DisplayRepresentation(
-            title: "\(title)",
-            subtitle: "",
-            image: .init(systemName: "cube.box")
-        )
-    }
 }
 
 extension ItemShortcutEntity: Hashable, Equatable {

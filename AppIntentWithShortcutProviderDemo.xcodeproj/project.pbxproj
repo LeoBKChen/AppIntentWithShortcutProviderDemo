@@ -19,7 +19,7 @@
 		145283BC2B886BC80085AE2F /* ItemShortcutEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145283BB2B886BC80085AE2F /* ItemShortcutEntity.swift */; };
 		145283BF2B8872CC0085AE2F /* AddItemIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145283BE2B8872CC0085AE2F /* AddItemIntent.swift */; };
 		145283C12B8872DA0085AE2F /* ModifyItemIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145283C02B8872DA0085AE2F /* ModifyItemIntent.swift */; };
-		145283C42B8C42AE0085AE2F /* AppShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145283C32B8C42AE0085AE2F /* AppShortcutsProvider.swift */; };
+		145283C42B8C42AE0085AE2F /* ShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145283C32B8C42AE0085AE2F /* ShortcutsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		145283BB2B886BC80085AE2F /* ItemShortcutEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemShortcutEntity.swift; sourceTree = "<group>"; };
 		145283BE2B8872CC0085AE2F /* AddItemIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemIntent.swift; sourceTree = "<group>"; };
 		145283C02B8872DA0085AE2F /* ModifyItemIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyItemIntent.swift; sourceTree = "<group>"; };
-		145283C32B8C42AE0085AE2F /* AppShortcutsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppShortcutsProvider.swift; sourceTree = "<group>"; };
+		145283C32B8C42AE0085AE2F /* ShortcutsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 		145283C22B8C416A0085AE2F /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				145283C32B8C42AE0085AE2F /* AppShortcutsProvider.swift */,
+				145283C32B8C42AE0085AE2F /* ShortcutsProvider.swift */,
 			);
 			path = Provider;
 			sourceTree = "<group>";
@@ -236,7 +236,7 @@
 				145283BC2B886BC80085AE2F /* ItemShortcutEntity.swift in Sources */,
 				145283AE2B872F6B0085AE2F /* MockDataGenerator.swift in Sources */,
 				145283BF2B8872CC0085AE2F /* AddItemIntent.swift in Sources */,
-				145283C42B8C42AE0085AE2F /* AppShortcutsProvider.swift in Sources */,
+				145283C42B8C42AE0085AE2F /* ShortcutsProvider.swift in Sources */,
 				1452839C2B8727C60085AE2F /* Item.swift in Sources */,
 				145283982B8727C60085AE2F /* AppIntentWithShortcutProviderDemoApp.swift in Sources */,
 			);

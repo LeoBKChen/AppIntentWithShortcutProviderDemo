@@ -32,11 +32,7 @@ struct AddItemIntent: AppIntent, PredictableIntent {
         _ = DataProvider.shared
     }
     
-    init(title: String) {
-        self.title = title
-    }
-    
-    func perform() async throws -> some IntentResult & ProvidesDialog {
+    func perform() async throws -> some ProvidesDialog {
         let item = Item(timestamp: Date(), id: UUID(), title: self.title, status: [.off, .off, .off])
         
         await DataProvider.shared.insertItem(item)
